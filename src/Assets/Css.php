@@ -45,6 +45,10 @@ class Css extends Asset
 
         $html ??= $this->getHref();
 
+        if ($html instanceof HtmlString) {
+            return $html;
+        }
+
         return new HtmlString("<link
             href=\"{$html}\"
             rel=\"stylesheet\"
